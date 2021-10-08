@@ -1,0 +1,40 @@
+version: '3.9'
+services:
+  client:
+    build: ./client
+    container_name: skilltrees-client
+    image: skilltrees-client
+    restart: always
+    tty: true
+    depends_on:
+      - app
+    ports:
+      - "3002:3002"
+    volumes:
+      - ./client:/client
+      - /client/node_modules
+    environment:
+      DATABASE_URL: postgres://postgres:skilltrees@skilltrees_dev:5424
+  app:
+    build: ./app
+    container_name: skilltrees-app
+    image: skilltrees-app
+    restart: always
+    tty: true
+    depends_on:
+      - postgres
+    ports:
+      - "8020:8020"
+    volumes:
+      - ./app:/app
+      - /app/node_modules
+    environment:
+      DATABASE_URL: postgres://postgres:skilltrees@skilltrees_dev:5424
+  postgres:
+    image: postgres:latest
+    container_name: skilltrees-postgres
+    ports:
+      - "5424:5424"
+    environment:
+      POSTGRES_PASSWORD: skilltrees
+      POSTGRES_DB: skilltrees_dev
