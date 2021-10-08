@@ -4,6 +4,10 @@
     "outDir": "dist",
     "strict": true,
     "lib": ["esnext"],
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "target": "es6",
+    "module": "CommonJS",
+    "moduleResolution": "node",
+    "noImplicitAny": false
   }
 }

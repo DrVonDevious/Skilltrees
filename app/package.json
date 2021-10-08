@@ -2,9 +2,9 @@
   "name": "skilltrees-app",
   "version": "0.1.0",
   "description": "",
-  "main": "index.js",
+  "main": "index.ts",
   "scripts": {
-    "start": "nodemon server.js",
+    "start": "nodemon index.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -19,6 +19,7 @@
   },
   "dependencies": {
     "@prisma/client": "^3.2.1",
+    "@types/express": "^4.17.13",
     "express": "^4.17.1"
   }
 }
