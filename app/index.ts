@@ -1,10 +1,13 @@
 import express from "express";
+import { initApi } from "./api";
 
 const app = express();
 const port = 8020;
 
+initApi(app);
+
 app.get('/', (req, res) => {
-  res.send('Hello Express!')
+  res.send("skilltrees api")
 });
 
 app.listen(port, () => {
