@@ -1,0 +1,24 @@
+.home {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  row-gap: 84px;
+
+  &__header-text {
+    margin-bottom: 80px;
+    color: whitesmoke;
+  }
+
+  &__new-btn {
+    border-radius: 8px;
+    background-color: var(--granny-smith-apple);
+    padding: 14px 40px;
+
+    &:hover {
+      cursor: pointer;
+      background-color: var(--yellow-green-crayola);
+    }
+  }
+}
