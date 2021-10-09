@@ -1,0 +1,26 @@
+.tree {
+  &__header {
+    background-color: var(--celadon-blue);
+    height: 48px;
+    display: flex;
+    padding: 0 14px;
+  }
+
+  &__header--title {
+    font-size: 16pt;
+    padding: 10px 0;
+  }
+
+  &__new-tier-btn {
+    border-radius: 8px;
+    background-color: var(--granny-smith-apple);
+    padding: 14px 40px;
+    width: fit-content;
+    font-weight: 500;
+
+    &:hover {
+      cursor: pointer;
+      background-color: var(--yellow-green-crayola);
+    }
+  }
+}
