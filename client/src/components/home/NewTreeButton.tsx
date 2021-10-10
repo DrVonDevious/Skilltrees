@@ -6,7 +6,7 @@ const NewTreeButton: React.FC = () => {
   const history = useHistory();
 
   const handleClick = async () => {
-    const tree = await createTree("");
+    const tree = await createTree("Cooking");
     if (tree) history.push(`/trees/${tree.id}`);
   };
 

@@ -1,10 +1,9 @@
 import React from "react";
 import { createTier } from "../../app/requests";
 
-const NewTierButton: React.FC<{id: string}> = ({ id }) => {
+const NewTierButton: React.FC<{id: string, tierCount: number}> = ({ id, tierCount }) => {
   const handleClick = (treeId: string) => {
-    const tier = createTier("Boiling", treeId, 0);
-    if (tier) console.log(tier);
+    createTier("Boiling", treeId, tierCount);
   };
 
   return (

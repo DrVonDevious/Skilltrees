@@ -8,14 +8,20 @@ const _catchFetchErrors = async (response: any) => {
   } 
 };
 
+export const fetchAllTrees = async () => {
+  const response = await fetch(`http://localhost:8020/trees`);
+  return await _catchFetchErrors(response);
+};
+
+export const fetchTreeTiers = async (treeId: string) => {
+  const response = await fetch(`http://localhost:8020/trees/${treeId}/tiers`);
+  return await _catchFetchErrors(response);
+};
+
 export const fetchTree = async (id: string) => {
   const response = await fetch(`http://localhost:8020/trees/${id}`);
   return await _catchFetchErrors(response);
 };
-
-export const fetchTier = async () => {};
-
-export const fetchBranch = async () => {};
 
 export const createTree = async (name: string) => {
   const response = await fetch("http://localhost:8020/trees", {
@@ -29,17 +35,16 @@ export const createTree = async (name: string) => {
   return await _catchFetchErrors(response);
 };
 
-export const createTier = async (tierName: string, treeId: string, tierCount: number) => {
+export const createTier = async (name: string, treeId: string, tierCount: number) => {
   const response = await fetch(`http://localhost:8020/trees/${treeId}/tiers`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
-      tierName,
+      name,
       description: "",
       position: tierCount + 1,
+      treeId,
     }),
   });
   return await _catchFetchErrors(response);
 };
-
-export const createBranch = async () => {};

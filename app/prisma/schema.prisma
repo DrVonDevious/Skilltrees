@@ -23,7 +23,7 @@ model Tier {
   position    Int       @default(autoincrement())
   createdAt   DateTime  @default(now())
   updatedAt   DateTime  @updatedAt
-  tree        Tree      @relation(fields: [treeId], references: [id])
+  tree        Tree?      @relation(fields: [treeId], references: [id])
   treeId      String
   branches    Branch[]
 }
@@ -35,7 +35,7 @@ model Branch {
   position    Int       @default(autoincrement())
   createdAt   DateTime  @default(now())
   updatedAt   DateTime  @updatedAt
-  tier        Tier      @relation(fields: [tierId], references: [id])
+  tier        Tier?      @relation(fields: [tierId], references: [id])
   tierId      String
   subBranches SubBranch[]
 }
