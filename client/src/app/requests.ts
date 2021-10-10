@@ -101,3 +101,34 @@ export const createBranch = async (
   );
   return await _catchFetchErrors(response);
 };
+
+export const deleteTree = async (treeId: string) => {
+  const response = await fetch(`http://localhost:8020/trees/${treeId}`, {
+    method: "DELETE",
+  });
+  return await _catchFetchErrors(response);
+};
+
+export const deleteTier = async (treeId: string, tierId: string) => {
+  const response = await fetch(
+    `http://localhost:8020/trees/${treeId}/tiers/${tierId}`,
+    {
+      method: "DELETE",
+    }
+  );
+  return await _catchFetchErrors(response);
+};
+
+export const deleteBranch = async (
+  treeId: string,
+  tierId: string,
+  branchId: string
+) => {
+  const response = await fetch(
+    `http://localhost:8020/trees/${treeId}/tiers/${tierId}/branches/${branchId}`,
+    {
+      method: "DELETE",
+    }
+  );
+  return await _catchFetchErrors(response);
+};

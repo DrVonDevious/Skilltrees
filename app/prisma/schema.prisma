@@ -37,7 +37,7 @@ model Branch {
   updatedAt   DateTime  @updatedAt
   tier        Tier?     @relation(fields: [tierId], references: [id])
   tierId      String?
-  branch      Branch?   @relation(fields: [branchId], references: [id])
+  branch      Branch?   @relation("TreeBranch", fields: [branchId], references: [id])
   branchId    String?
-  branches    Branch[]
+  branches    Branch[]  @relation("TreeBranch")
 }

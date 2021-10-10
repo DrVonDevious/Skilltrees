@@ -1,16 +1,17 @@
 import React, { useEffect, useState } from "react";
+import ScrollContainer from "react-indiana-drag-scroll";
 import { useParams } from "react-router-dom";
 import { fetchTree, fetchTreeTiers } from "../../app/requests";
 import NewTierButton from "./NewTierButton";
 import TreeHeader from "./TreeHeader";
 
 const Tree: React.FC = () => {
-  const { id } = useParams<{id: string}>();
+  const { id } = useParams<{ id: string }>();
 
-  const [ tree, setTree ] = useState<{ name: string }>({
+  const [tree, setTree] = useState<{ name: string }>({
     name: "",
   });
-  const [ tiers, setTiers ] = useState([]);
+  const [tiers, setTiers] = useState([]);
 
   const getTree = async () => {
     const tree = await fetchTree(id);
@@ -30,10 +31,7 @@ const Tree: React.FC = () => {
   return (
     <div className="tree">
       <TreeHeader treeName={tree.name} />
-      <NewTierButton id={id} tierCount={tiers.length} />
-      {tiers.map((tier: any) => (
-        <div className="tree__new-tier-btn">{tier.name}</div>
-      ))}
+      <ScrollContainer className="tree__container"></ScrollContainer>
     </div>
   );
 };

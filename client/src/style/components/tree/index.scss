@@ -1,4 +1,10 @@
 .tree {
+  &__container {
+    overflow: hidden;
+    width: 100%;
+    height: calc(100vh - 48px);
+  }
+
   &__header {
     background-color: var(--celadon-blue);
     height: 48px;
