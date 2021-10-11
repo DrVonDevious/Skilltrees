@@ -1,16 +1,24 @@
 import React from "react";
 import { createTier } from "../../app/requests";
 
-const NewTierButton: React.FC<{id: string, tierCount: number}> = ({ id, tierCount }) => {
-  const handleClick = (treeId: string) => {
-    createTier("Boiling", treeId, tierCount);
+const NewTierButton: React.FC<{
+  id: string;
+  treeId: string;
+  tierCount: number;
+  x: number;
+  y: number;
+}> = ({ id, treeId, tierCount, x, y }) => {
+  const handleClick = (id: string) => {
+    createTier("Boiling", id, tierCount);
   };
 
   return (
     <div
-      className="tree__new-tier-btn"
+      id={id}
+      className="tree__new-tier-btn tree__node"
       role="button"
-      onClick={() => handleClick(id)}
+      onClick={() => handleClick(treeId)}
+      style={{ left: x, top: y }}
     >
       New Tier
     </div>

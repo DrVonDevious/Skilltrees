@@ -29,4 +29,9 @@
       background-color: var(--yellow-green-crayola);
     }
   }
+
+  &__node {
+    position: absolute;
+    transform: translate(-50%, 0);
+  }
 }
